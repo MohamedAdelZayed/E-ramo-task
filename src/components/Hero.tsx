@@ -100,7 +100,7 @@ const HeroSection = () => {
                   <h1 className="text-3xl md:text-3xl lg:text-5xl font-bold text-[#F8E9D9] text-center leading-tight max-w-[90%] md:max-w-4xl">
                     {slide.title}
 
-                    <p className="text-[11px] md:text-base lg:text-lg xl:text-xl font-semibold text-[#F8E9D9]/90 text-center w-[85%] md:w-[80%] mx-auto mt-1 leading-relaxed">
+                    <p className="text-[12px] md:text-base lg:text-lg xl:text-xl font-semibold text-[#F8E9D9]/90 text-center w-[85%] md:w-[80%] mx-auto mt-1 leading-relaxed">
                       Coworking & Flexible Office Marketplace | Search & Book Today
                     </p>
 
@@ -130,7 +130,7 @@ const HeroSection = () => {
                   <button
                     key={cat.label}
                     onClick={() => setActiveTab(cat.label)}
-                    className={`flex flex-col md:flex-row items-center justify-center gap-2 md:gap-3 cursor-pointer py-3.5 px-2 rounded-2xl transition-all duration-300 border ${
+                    className={`flex flex-col md:flex-row items-center justify-center gap-2 md:gap-3 cursor-pointer py-2.5 px-2 rounded-2xl transition-all duration-300 border ${
                       isActive
                         ? "bg-[#2D4F2E] text-white border-[#2D4F2E] shadow-md"
                         : "bg-[#F3F7F3] text-gray-500 border-transparent hover:bg-gray-100"
