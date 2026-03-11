@@ -5,10 +5,8 @@ import { FaSearch } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
-// import { Autoplay } from "swiper/modules";
-import { Autoplay, EffectFade } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import { useState } from "react";
-// 1. ضيف السطر ده مع ملفات الـ CSS
 import "swiper/css/effect-fade"; 
 
 
