@@ -5,8 +5,12 @@ import { FaSearch } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
-import { Autoplay } from "swiper/modules";
+// import { Autoplay } from "swiper/modules";
+import { Autoplay, EffectFade } from "swiper/modules";
 import { useState } from "react";
+// 1. ضيف السطر ده مع ملفات الـ CSS
+import "swiper/css/effect-fade"; 
+
 
 /* === Categories Tabs Data === */
 const categories = [
@@ -73,12 +77,19 @@ const HeroSection = () => {
         {/* === Hero Slider === */}
         <div className="relative h-125 rounded-2xl overflow-hidden shadow-xl">
 
-          <Swiper
-            modules={[Autoplay]}
-            autoplay={{ delay: 4000, disableOnInteraction: false }}
-            loop
-            className="h-full w-full"
-          >
+        <Swiper
+          modules={[Autoplay]}
+          speed={1300} 
+          autoplay={{ 
+            delay: 3000, 
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          loop={true}
+          className="h-full w-full"
+        >
+
+
             {slides.map((slide, idx) => (
               <SwiperSlide key={idx} className="relative h-full w-full">
 
