@@ -83,7 +83,7 @@ const ContactUsSection = () => {
             />
             <textarea
               placeholder="Your Message"
-              rows="5"
+              rows={5}
               className="w-full bg-[#EEEEEE] border-none rounded-lg p-4 outline-none focus:ring-1 focus:ring-[#2D4A27] text-gray-700 placeholder-gray-400 resize-none"
             ></textarea>
 
