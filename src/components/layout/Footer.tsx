@@ -9,7 +9,9 @@ import {
 } from 'react-icons/fa';
 import { HiOutlineMap } from "react-icons/hi";
 
+
 const Footer = () => {
+
   const categories = [
     { image: "/images/space.svg", label: "Shared Area", active: true },
     { image: "/images/officies.svg", label: "Private Office", active: false },
@@ -84,7 +86,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold text-[#1A1A1A] mb-6">Products</h3>
 
-            <ul className="space-y-4 text-sm text-[#4D4D4D]">
+            {/* <ul className="space-y-4 text-sm text-[#4D4D4D]">
               {categories.map((category, index) => (
                 <li key={index} className="flex items-center gap-2 group">
                   {category.isIcon ? (
@@ -108,7 +110,32 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
-            </ul>
+            </ul> */}
+
+            <ul className="space-y-4 text-sm text-[#4D4D4D]">
+  {categories.map((category, index) => (
+    <li key={index} className="flex items-center gap-2 group">
+      {category.isIcon ? (
+        <span className="group-hover:scale-110 transition-transform">
+          {category.icon}
+        </span>
+      ) : (
+        // هنا استعملنا (category as any).image 
+        // عشان تيب سكريبت يسيبنا في حالنا وما يدققش وراك
+        <Image 
+          src={(category as any).image} 
+          alt={category.label} 
+          width={18} 
+          height={18} 
+          className="grayscale group-hover:grayscale-0 transition-all"
+        />
+      )}
+      <Link href="#" className="...">
+        {category.label}
+      </Link>
+    </li>
+  ))}
+</ul>
 
           </div>
 
