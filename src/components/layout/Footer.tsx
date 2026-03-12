@@ -20,13 +20,6 @@ const Footer = () => {
     { icon: <HiOutlineMap size={20} className="text-[#2D4A27]" />, label: "Sitemap", active: false, isIcon: true },
   ];
 
-  // const categories = [
-  //   { image: "/images/space.svg", label: "Shared Area", active: true },
-  //   { image: "/images/officies.svg", label: "Private Office", active: false },
-  //   { image: "/images/meeting.svg", label: "Meeting Room", active: false },
-  //   { image: "/images/desk.svg", label: "Dedicated Desk", active: false },
-  //   { icon: <HiOutlineMap size={20} className="text-[#2D4A27]" />, label: "Sitemap", active: false, isIcon: true },
-  // ];
 
   return (
     <footer className="bg-[#F9F9F9] pt-16 pb-4 border-t border-gray-100">
@@ -94,21 +87,21 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold text-[#1A1A1A] mb-6">Products</h3>
 
-            {/* <ul className="space-y-4 text-sm text-[#4D4D4D]">
+            <ul className="space-y-4 text-sm text-[#4D4D4D]">
               {categories.map((category, index) => (
                 <li key={index} className="flex items-center gap-2 group">
                   {category.isIcon ? (
-                    <span className="group-hover:scale-110 transition-transform">{category.icon}</span>
+                    <span className="group-hover:scale-110 transition-transform">
+                      {category.icon}
+                    </span>
                   ) : (
-                    category.image && (
-                      <Image
-                        src={category.image!}
-                        alt={category.label}
-                        width={18}
-                        height={18}
-                        className="grayscale group-hover:grayscale-0 transition-all"
-                      />
-                    )
+                    <Image
+                      src={category.image}
+                      alt={category.label}
+                      width={18}
+                      height={18}
+                      className="grayscale group-hover:grayscale-0 transition-all"
+                    />
                   )}
                   <Link
                     href="#"
@@ -118,34 +111,7 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
-            </ul> */}
-
-           <ul className="space-y-4 text-sm text-[#4D4D4D]">
-      {categories.map((category, index) => (
-        <li key={index} className="flex items-center gap-2 group">
-          {category.isIcon ? (
-            <span className="group-hover:scale-110 transition-transform">
-              {category.icon}
-            </span>
-          ) : (
-            // بما إننا استخدمنا any فوق، الـ src هنا هيتقبل فوراً بدون مشاكل
-            <Image 
-              src={category.image} 
-              alt={category.label} 
-              width={18} 
-              height={18} 
-              className="grayscale group-hover:grayscale-0 transition-all"
-            />
-          )}
-          <Link
-            href="#"
-            className={`transition-colors ${category.active ? 'text-[#2D4A27] font-semibold' : 'hover:text-[#2D4A27]'}`}
-          >
-            {category.label}
-          </Link>
-        </li>
-      ))}
-    </ul>
+            </ul>
           </div>
 
           {/* العمود الرابع: Download App */}
