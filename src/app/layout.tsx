@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/layout/Navbar";
 import { Poppins } from "next/font/google";
+import Footer from "../components/layout/Footer";
 
 //  الخط
 const poppins = Poppins({
@@ -34,6 +35,7 @@ export default function RootLayout({
       >
         <Navbar/>
         {children}
+        <Footer/>
     
       </body>
     </html>

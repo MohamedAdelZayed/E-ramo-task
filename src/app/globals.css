@@ -10,6 +10,20 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+ --animate-hand-greet: hand-greet 2s ease-in-out infinite alternate;
+
+}
+
+@keyframes hand-greet {
+  0% {
+    transform: translateX(20px) rotate(10deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(0px) rotate(0deg);
+    opacity: 1;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -46,3 +60,22 @@ body {
   transform-origin: right top;
 }
 
+@keyframes hover-arrow {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+
+
+@keyframes spin-slow {
+   from { transform: rotate(0deg); }
+   to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+   animation: spin-slow 8s linear infinite;
+}

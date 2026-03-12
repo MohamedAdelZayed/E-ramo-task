@@ -38,7 +38,7 @@ const HeroSection = () => {
   const [activeTab, setActiveTab] = useState("Shared Space");
 
   return (
-    <section className="relative pb-28 overflow-visible mt-1">
+    <section className="relative pb-4 overflow-visible mt-1">
 
       {/* === Ramadan Decorations === */}
 
