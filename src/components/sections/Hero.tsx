@@ -73,7 +73,7 @@ const HeroSection = () => {
       <div className="max-w-315 mx-auto px-3 md:px-12 relative">
 
         {/* === Hero Slider === */}
-        <div className="relative h-125 rounded-2xl overflow-hidden shadow-xl">
+        <div className="relative h-[280px] md:h-125 rounded-2xl overflow-hidden shadow-xl">
 
         <Swiper
           modules={[Autoplay]}
@@ -92,19 +92,29 @@ const HeroSection = () => {
               <SwiperSlide key={idx} className="relative h-full w-full">
 
                 {/* Background Image */}
-                <Image
+                {/* <Image
                   src={slide.image}
                   alt={slide.title}
                   fill
                   className="w-full rounded-md mx1 object-cover"
                   priority
-                />
+                /> */}
+
+                <Image
+  src={slide.image}
+  alt={slide.title}
+  fill
+  // 1. شيلنا الـ object-cover وحطينا object-fill أو استعملنا أبعاد مرنة
+  // 2. أهم حاجة الـ rounded-3xl عشان تجيب التقويسة اللي في السكرين
+  className="object-cover rounded-[2.5rem]" 
+  priority
+/>
 
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-linear-to-b from-[#3F3533]/90 via-[#3F3533]/50 to-transparent" />
 
                 {/* Text Content */}
-                <div className="absolute inset-0 flex items-center justify-start flex-col pt-26 sm:pt-20 px-4">
+                <div className="absolute inset-0 flex items-center justify-start flex-col pt-12 sm:pt-20 px-4">
 
                   <h1 className="text-3xl md:text-3xl lg:text-5xl font-bold text-[#F8E9D9] text-center leading-tight max-w-[90%] md:max-w-4xl">
                     {slide.title}
@@ -124,7 +134,7 @@ const HeroSection = () => {
         </div>
 
         {/* === Floating Search Box === */}
-        <div className="max-w-5xl mx-auto -mt-28 sm:-mt-21 relative z-40 px-1.5 sm:px-4">
+        <div className="max-w-5xl mx-auto -mt-7 md:-mt-21 relative z-40 px-1.5 sm:px-4">
 
           <div className="bg-white rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.1)] p-6 md:p-8 border border-gray-100">
 
