@@ -92,7 +92,7 @@ const Footer = () => {
                   ) : (
                     category.image && (
                       <Image
-                        src={category.image}
+                        src={category.image!}
                         alt={category.label}
                         width={18}
                         height={18}
