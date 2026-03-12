@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { 
-  FaFacebookF, 
-  FaLinkedinIn, 
-  FaInstagram, 
-  FaTiktok, 
-  FaApple 
+import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaInstagram,
+  FaTiktok,
+  FaApple
 } from 'react-icons/fa';
-import { HiOutlineMap } from "react-icons/hi"; 
+import { HiOutlineMap } from "react-icons/hi";
 
 const Footer = () => {
   const categories = [
@@ -21,45 +21,45 @@ const Footer = () => {
   return (
     <footer className="bg-[#F9F9F9] pt-16 pb-4 border-t border-gray-100">
       <div className="max-w-315 mx-auto px-4 md:px-12">
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          
+
           {/* العمود الأول: Logo & Social */}
           <div className="space-y-6">
             <div className="relative w-37.5 h-17.5 mx-auto lg:mx-0">
-              <Image 
-                src="/images/logo.png" 
-                alt="Chair Location" 
-                fill 
+              <Image
+                src="/images/logo.png"
+                alt="Chair Location"
+                fill
                 className="object-contain"
               />
             </div>
 
             <div className="grid grid-cols-3 gap-y-3 justify-center items-center text-center lg:text-start w-full">
-              <a 
-                target="_blank" 
-                href="http://facebook.com/chairlocationcom" 
+              <a
+                target="_blank"
+                href="http://facebook.com/chairlocationcom"
                 className="text-[#717A76] transition hover:text-[#2D4A27] hover:scale-125"
               >
                 <FaFacebookF className="text-xl mx-auto lg:mx-0" />
               </a>
-              <a 
-                target="_blank" 
-                href="https://www.linkedin.com/company/chair-location" 
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/company/chair-location"
                 className="text-[#717A76] transition hover:text-[#2D4A27] hover:scale-125"
               >
                 <FaLinkedinIn className="text-xl mx-auto lg:mx-0" />
               </a>
-              <a 
-                target="_blank" 
-                href="http://instagram.com/chairlocation.sa" 
+              <a
+                target="_blank"
+                href="http://instagram.com/chairlocation.sa"
                 className="text-[#717A76] transition hover:text-[#2D4A27] hover:scale-125"
               >
                 <FaInstagram className="text-xl mx-auto lg:mx-0" />
               </a>
-              <a 
-                target="_blank" 
-                href="https://tiktok.com/@chairlocation" 
+              <a
+                target="_blank"
+                href="https://tiktok.com/@chairlocation"
                 className="text-[#717A76] transition hover:text-[#2D4A27] hover:scale-125"
               >
                 <FaTiktok className="text-xl mx-auto lg:mx-0" />
@@ -83,22 +83,25 @@ const Footer = () => {
           {/* العمود الثالث: Products */}
           <div>
             <h3 className="text-lg font-bold text-[#1A1A1A] mb-6">Products</h3>
+
             <ul className="space-y-4 text-sm text-[#4D4D4D]">
               {categories.map((category, index) => (
                 <li key={index} className="flex items-center gap-2 group">
                   {category.isIcon ? (
                     <span className="group-hover:scale-110 transition-transform">{category.icon}</span>
                   ) : (
-                    <Image 
-                      src={category.image} 
-                      alt={category.label} 
-                      width={18} 
-                      height={18} 
-                      className="grayscale group-hover:grayscale-0 transition-all"
-                    />
+                    category.image && (
+                      <Image
+                        src={category.image}
+                        alt={category.label}
+                        width={18}
+                        height={18}
+                        className="grayscale group-hover:grayscale-0 transition-all"
+                      />
+                    )
                   )}
-                  <Link 
-                    href="#" 
+                  <Link
+                    href="#"
                     className={`transition-colors ${category.active ? 'text-[#2D4A27] font-semibold' : 'hover:text-[#2D4A27]'}`}
                   >
                     {category.label}
@@ -106,6 +109,7 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
+
           </div>
 
           {/* العمود الرابع: Download App */}
@@ -144,7 +148,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row gap-1 text-[11px] whitespace-nowrap text-[#808080]">
             <p>© 2026 All Copyrights Chair Location |</p>
             <p>
-              Developed by 
+              Developed by
               <a href="https://e-ramo.net/" target="_blank" className="text-[14px] hover:underline ml-1 text-black font-bold">
                 e-RAMO For Digital Solutions
               </a>
@@ -153,7 +157,7 @@ const Footer = () => {
         </div>
 
       </div>
-    
+
     </footer>
   );
 };
