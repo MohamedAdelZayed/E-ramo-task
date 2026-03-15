@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaArrowUp } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
-import { useState } from "react";
-import "swiper/css/effect-fade"; 
+import { useEffect, useState } from "react";
+import "swiper/css/effect-fade";
 
 
 /* === Categories Tabs Data === */
@@ -26,7 +26,7 @@ const slides = [
     image: "/images/hero.png",
   },
   {
-    title: "Modern Offices That Fit You", 
+    title: "Modern Offices That Fit You",
     subtitle: "Coworking & Flexible Office Marketplace | Search & Book Today",
     image: "/images/hero.png",
   },
@@ -36,6 +36,29 @@ const HeroSection = () => {
 
   /* Active Category Tab */
   const [activeTab, setActiveTab] = useState("Shared Space");
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.scrollY > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  // دالة الصعود للأعلى 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <section className="relative pb-2 overflow-visible mt-1">
@@ -70,45 +93,46 @@ const HeroSection = () => {
         </div>
       </div>
 
+      {/* === زر السكرول (Scroll To Top Button) === */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-8 right-8 z-9999 cursor-pointer p-3 rounded-xl bg-[#2D4F2E] text-white shadow-lg transition-all duration-300 hover:bg-[#3d693e] active:scale-95 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
+          }`}
+        aria-label="Scroll to top"
+      >
+        <FaArrowUp className="w-5 h-5" />
+      </button>
+
+
       <div className="max-w-315 mx-auto px-3 md:px-12 relative">
 
         {/* === Hero Slider === */}
-        <div className="relative h-[280px] md:h-125 rounded-2xl overflow-hidden shadow-xl">
+        <div className="relative h-70 md:h-125 rounded-2xl overflow-hidden shadow-xl">
 
-        <Swiper
-          modules={[Autoplay]}
-          speed={1300} 
-          autoplay={{ 
-            delay: 3000, 
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
-          loop={true}
-          className="h-full w-full"
-        >
+          <Swiper
+            modules={[Autoplay]}
+            speed={1300}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            loop={true}
+            className="h-full w-full"
+          >
 
 
             {slides.map((slide, idx) => (
               <SwiperSlide key={idx} className="relative h-full w-full">
 
                 {/* Background Image */}
-                {/* <Image
+                <Image
                   src={slide.image}
                   alt={slide.title}
                   fill
-                  className="w-full rounded-md mx1 object-cover"
+                  className="object-cover rounded-[2.5rem]"
                   priority
-                /> */}
-
-                <Image
-  src={slide.image}
-  alt={slide.title}
-  fill
-  // 1. شيلنا الـ object-cover وحطينا object-fill أو استعملنا أبعاد مرنة
-  // 2. أهم حاجة الـ rounded-3xl عشان تجيب التقويسة اللي في السكرين
-  className="object-cover rounded-[2.5rem]" 
-  priority
-/>
+                />
 
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-linear-to-b from-[#3F3533]/90 via-[#3F3533]/50 to-transparent" />
@@ -149,18 +173,16 @@ const HeroSection = () => {
                   <button
                     key={cat.label}
                     onClick={() => setActiveTab(cat.label)}
-                    className={`flex flex-col md:flex-row items-center justify-center gap-2 md:gap-3 cursor-pointer py-2.5 px-2 rounded-2xl transition-all duration-300 border ${
-                      isActive
+                    className={`flex flex-col md:flex-row items-center justify-center gap-2 md:gap-3 cursor-pointer py-2.5 px-2 rounded-2xl transition-all duration-300 border ${isActive
                         ? "bg-[#2D4F2E] text-white border-[#2D4F2E] shadow-md"
                         : "bg-[#F3F7F3] text-gray-500 border-transparent hover:bg-gray-100"
-                    }`}
+                      }`}
                   >
 
                     {/* Category Icon */}
                     <div
-                      className={`relative w-5 h-5 md:w-6 md:h-6 ${
-                        isActive ? "brightness-0 invert" : ""
-                      }`}
+                      className={`relative w-5 h-5 md:w-6 md:h-6 ${isActive ? "brightness-0 invert" : ""
+                        }`}
                     >
                       <Image
                         src={cat.image}
